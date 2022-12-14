@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  iptracer:
+    image: iptracer
+    build:
+      context: .
+      dockerfile: ./Dockerfile
