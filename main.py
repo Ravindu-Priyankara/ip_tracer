@@ -3,15 +3,16 @@
 try:
     import pyfiglet
     import urllib.request
-    from tabulate import tabulate
+    #from tabulate import tabulate
     from modules.user_loc import *
     from modules.color_codes import *
 except Exception as error:
     #print(error.__class__.__name__+":"+error.message)
     print(error)
+
 class Main:
     global cmd
-    global banner
+    global main_banner
     global map_func
     global user_data
     global connection
@@ -22,15 +23,22 @@ class Main:
         #find my details
         #print( user_data() if connection() else "no internet!" ) #simplyfy this code
         #user_data()
-        
-        banner()
+        #main_banner()
 
-    def banner():
+        user_inp = str(input("Enter your choice:-\t"))
+        if user_inp != "0":
+            while True:
+                user_inp = str(input("Enter your choice:-\t"))
+                if user_inp == "0":
+                    break
+        
+
+    """def main_banner():
         ascii_banner = pyfiglet.figlet_format("IP TRACER")
         print(BRIGHT_CYAN+ascii_banner+BRIGHT_GREEN+"by Ravindu Priyankara\n"+BRIGHT_WHITE)
 
         table = [['Number', 'Details'], [1,"Command Line application"], [2,"Web Application"],[3,"Graphical user interface"]]
-        print(tabulate(table, headers='firstrow', tablefmt='fancy_grid'))
+        print(tabulate(table, headers='firstrow', tablefmt='fancy_grid'))"""
 
     def user_data():
         user_detail = get_location()
